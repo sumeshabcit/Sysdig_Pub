@@ -1,0 +1,22 @@
+terraform {
+  required_providers {
+    sysdig = {
+      source = "sysdiglabs/sysdig"
+    }
+  }
+}
+
+provider "sysdig" {
+  sysdig_secure_url       = "https://us2.app.sysdig.com"
+  sysdig_secure_api_token = "f039cf2d-218c-4410-b84d-bd3d6b1828cb"
+}
+
+provider "azurerm" {
+  features { }
+  subscription_id = "1f12db8a-1b27-441c-a372-d7e41375cc13"
+}
+
+module "single-subscription" {
+  source = "sysdiglabs/secure-for-cloud/azurerm//examples/single-subscription"
+}
+
